@@ -719,7 +719,7 @@ Zotero.Sync.Storage.ZFS = (function () {
 		_rootURI = false;
 		_userURI = false;
 		
-		var url = ZOTERO_CONFIG.API_URL;
+		var url = Zotero.Prefs.get('api.server.scheme') + "://" + Zotero.Prefs.get('api.server.url') + "/";
 		var username = Zotero.Sync.Server.username;
 		var password = Zotero.Sync.Server.password;
 		

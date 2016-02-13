@@ -49,6 +49,8 @@
 			<preference id="pref-keys-importFromClipboard" name="extensions.zotero.keys.importFromClipboard" type="string"/>
 			<preference id="pref-keys-copySelectedItemCitationsToClipboard" name="extensions.zotero.keys.copySelectedItemCitationsToClipboard" type="string"/>
 			<preference id="pref-keys-copySelectedItemsToClipboard" name="extensions.zotero.keys.copySelectedItemsToClipboard" type="string"/>
+			<preference id="pref-api-scheme" name="extensions.zotero.api.server.scheme" type="string"/>
+			<preference id="pref-api-url" name="extensions.zotero.api.server.url" type="string"/>
 		</preferences>
 		
 		<tabbox id="zotero-prefpane-advanced-tabs">
@@ -56,6 +58,7 @@
 				<tab label="&zotero.preferences.prefpane.general;"/>
 				<tab label="&zotero.preferences.advanced.filesAndFolders;"/>
 				<tab label="&zotero.preferences.advanced.keys;"/> 
+				<tab label="&zotero.preferences.advanced.server;"/> 
 			</tabs>
 			
 			<tabpanels id="zotero-prefpane-advanced-tabpanels">
@@ -274,6 +277,41 @@
 					<label class="statusLine" value="&zotero.preferences.keys.changesTakeEffect;"/>
 					
 					<separator/>				
+				</tabpanel>
+
+				<tabpanel id="zotero-prefpane-advanced-server-tab" orient="vertical">
+					<groupbox>
+						<caption label="&zotero.preferences.server.api;"/>
+
+						<hbox>
+							<grid>
+								<columns>
+									<column/>
+									<column/>
+								</columns>
+
+								<rows>
+									<row align="center">
+										<label value="&zotero.preferences.server.api.url;"/>
+
+										<hbox align="center">
+											<menulist id="api-url-prefix"
+													preference="pref-api-scheme"
+													style="padding: 0; width: 7em">
+												<menupopup>
+													<menuitem label="https" value="https" style="padding: 0"/>
+													<menuitem label="http" value="http" style="padding: 0"/>
+												</menupopup>
+											</menulist>
+											<label value="://"/>
+											<textbox preference="pref-api-url" flex="1"
+												onchange="this.value = this.value.trim().replace(/^https?:\/\/|\/+$/, ''); Zotero.Prefs.set('api.server.url', this.value)"/>
+										</hbox>
+									</row>
+								</rows>
+							</grid>
+						</hbox>
+					</groupbox>
 				</tabpanel>
 			</tabpanels>
 		</tabbox>
