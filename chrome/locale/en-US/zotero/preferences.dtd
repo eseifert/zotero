@@ -209,6 +209,8 @@
 <!ENTITY zotero.preferences.openAboutMemory				"Open about:memory">
 
 <!ENTITY zotero.preferences.advanced.server "Server">
+<!ENTITY zotero.preferences.server.base "Base Server:">
+<!ENTITY zotero.preferences.server.base.url "URL:">
 <!ENTITY zotero.preferences.server.api "API Server:">
 <!ENTITY zotero.preferences.server.api.url "URL:">
 <!ENTITY zotero.preferences.server.api.version "Version:">

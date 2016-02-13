@@ -183,7 +183,9 @@ pref("extensions.zotero.translators.supplementaryAsLink", false);
 pref("extensions.zotero.translators.RIS.import.ignoreUnknown", true);
 pref("extensions.zotero.translators.RIS.import.keepID", false);
 
-// API server
+// Servers
+pref("extensions.zotero.base.server.scheme", "https");
+pref("extensions.zotero.base.server.url", "zotero.org");
 pref("extensions.zotero.api.server.scheme", "https");
 pref("extensions.zotero.api.server.url", "api.zotero.org");
 pref("extensions.zotero.api.server.version", 2);

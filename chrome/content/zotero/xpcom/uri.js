@@ -27,7 +27,9 @@
 Zotero.URI = new function () {
 	this.__defineGetter__('defaultPrefix', function () { return 'http://zotero.org/'; });
 
-	var _baseURI = ZOTERO_CONFIG.BASE_URI;
+	var _getBaseURI = function () {
+		return Zotero.Prefs.get("base.server.scheme") + "://" + Zotero.Prefs.get("base.server.url") + "/";
+	};
 
 	/**
 	 * Get a URI with the user's local key, if there is one
@@ -40,7 +42,7 @@ Zotero.URI = new function () {
 			return false;
 		}
 		
-		return _baseURI + "users/local/" + Zotero.getLocalUserKey();
+		return _getBaseURI() + "users/local/" + Zotero.getLocalUserKey();
 	}
 	
 	
@@ -55,10 +57,10 @@ Zotero.URI = new function () {
 			throw new Exception("Local userID not available and noLocal set in Zotero.URI.getCurrentUserURI()");
 		}
 		if (userID) {
-			return _baseURI + "users/" + userID;
+			return _getBaseURI() + "users/" + userID;
 		}
 		
-		return _baseURI + "users/local/" + Zotero.getLocalUserKey(true);
+		return _getBaseURI() + "users/local/" + Zotero.getLocalUserKey(true);
 	}
 	
 	
@@ -67,13 +69,13 @@ Zotero.URI = new function () {
 		if (!userID) {
 			return false;
 		}
-		return _baseURI + "users/" + userID + "/items";
+		return _getBaseURI() + "users/" + userID + "/items";
 	}
 	
 	
 	this.getLibraryURI = function (libraryID) {
 		var path = this.getLibraryPath(libraryID);
-		return _baseURI + path;
+		return _getBaseURI() + path;
 	}
 	
 	
@@ -158,9 +160,10 @@ Zotero.URI = new function () {
 	 * @return	{String}
 	 */
 	this.getGroupURI = function (group, webRoot) {
+		var _baseURI = _getBaseURI();
 		var uri = _baseURI + "groups/" + group.id;
 		if (webRoot) {
-			uri = uri.replace(ZOTERO_CONFIG.BASE_URI, ZOTERO_CONFIG.WWW_BASE_URL);
+			uri = uri.replace(_baseURI, ZOTERO_CONFIG.WWW_BASE_URL);
 		}
 		return uri;
 	}
@@ -235,6 +238,7 @@ Zotero.URI = new function () {
 		
 		// If not found, try global URI
 		if (!libraryType) {
+			var _baseURI = _getBaseURI();
 			if (objectURI.indexOf(_baseURI) != 0) {
 				throw ("Invalid base URI '" + objectURI + "' in Zotero.URI._getURIObject()");
 			}
