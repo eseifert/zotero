@@ -25,7 +25,7 @@
 
 
 Zotero.URI = new function () {
-	this.__defineGetter__('defaultPrefix', function () { return 'http://zotero.org/'; });
+	this.__defineGetter__('defaultPrefix', function () 'http://zotero.org/' );
 
 	var _getBaseURI = function () {
 		return Zotero.Prefs.get("base.server.scheme") + "://" + Zotero.Prefs.get("base.server.url") + "/";
