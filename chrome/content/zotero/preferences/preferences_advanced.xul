@@ -51,6 +51,7 @@
 			<preference id="pref-keys-copySelectedItemsToClipboard" name="extensions.zotero.keys.copySelectedItemsToClipboard" type="string"/>
 			<preference id="pref-api-scheme" name="extensions.zotero.api.server.scheme" type="string"/>
 			<preference id="pref-api-url" name="extensions.zotero.api.server.url" type="string"/>
+			<preference id="pref-api-version" name="extensions.zotero.api.server.version" type="int"/>
 		</preferences>
 		
 		<tabbox id="zotero-prefpane-advanced-tabs">
@@ -291,10 +292,10 @@
 								</columns>
 
 								<rows>
-									<row align="center">
+									<row>
 										<label value="&zotero.preferences.server.api.url;"/>
 
-										<hbox align="center">
+										<hbox>
 											<menulist id="api-url-prefix"
 													preference="pref-api-scheme"
 													style="padding: 0; width: 7em">
@@ -306,6 +307,13 @@
 											<label value="://"/>
 											<textbox preference="pref-api-url" flex="1"
 												onchange="this.value = this.value.trim().replace(/^https?:\/\/|\/+$/, ''); Zotero.Prefs.set('api.server.url', this.value)"/>
+										</hbox>
+									</row>
+
+									<row>
+										<label value="&zotero.preferences.server.api.version;"/>
+										<hbox>
+											<textbox size="3" preference="pref-api-version"/>
 										</hbox>
 									</row>
 								</rows>

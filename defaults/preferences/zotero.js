@@ -186,3 +186,4 @@ pref("extensions.zotero.translators.RIS.import.keepID", false);
 // API server
 pref("extensions.zotero.api.server.scheme", "https");
 pref("extensions.zotero.api.server.url", "api.zotero.org");
+pref("extensions.zotero.api.server.version", 2);
