@@ -25,12 +25,10 @@
 
 
 Zotero.URI = new function () {
-	this.__defineGetter__('defaultPrefix', function () 'http://zotero.org/');
-	
+	this.__defineGetter__('defaultPrefix', function () { return 'http://zotero.org/'; });
+
 	var _baseURI = ZOTERO_CONFIG.BASE_URI;
-	var _apiURI = ZOTERO_CONFIG.API_URI;
-	
-	
+
 	/**
 	 * Get a URI with the user's local key, if there is one
 	 *
