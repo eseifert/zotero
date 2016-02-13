@@ -25,7 +25,7 @@
 
 
 Zotero.Groups = new function () {
-	this.__defineGetter__('addGroupURL', function () ZOTERO_CONFIG.WWW_BASE_URL + 'groups/new/');
+	this.__defineGetter__('addGroupURL', function () { return Zotero.Prefs.get('www.server.scheme') + '://' + Zotero.Prefs.get('www.server.url') + '/groups/new/'; });
 	
 	this.get = function (id) {
 		if (!id) {

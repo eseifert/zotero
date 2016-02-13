@@ -30,6 +30,9 @@ Zotero.URI = new function () {
 	var _getBaseURI = function () {
 		return Zotero.Prefs.get("base.server.scheme") + "://" + Zotero.Prefs.get("base.server.url") + "/";
 	};
+	var _getWWWBaseURI = function () {
+		return Zotero.Prefs.get("www.server.scheme") + "://" + Zotero.Prefs.get("www.server.url") + "/";
+	};
 
 	/**
 	 * Get a URI with the user's local key, if there is one
@@ -151,7 +154,7 @@ Zotero.URI = new function () {
 	
 	
 	this.getGroupsURL = function () {
-		return ZOTERO_CONFIG.WWW_BASE_URL + "groups";
+		return _getWWWBaseURI() + "groups";
 	}
 	
 	
@@ -163,7 +166,7 @@ Zotero.URI = new function () {
 		var _baseURI = _getBaseURI();
 		var uri = _baseURI + "groups/" + group.id;
 		if (webRoot) {
-			uri = uri.replace(_baseURI, ZOTERO_CONFIG.WWW_BASE_URL);
+			uri = uri.replace(_baseURI, _getWWWBaseURI());
 		}
 		return uri;
 	}

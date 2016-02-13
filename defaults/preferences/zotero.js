@@ -186,6 +186,8 @@ pref("extensions.zotero.translators.RIS.import.keepID", false);
 // Servers
 pref("extensions.zotero.base.server.scheme", "https");
 pref("extensions.zotero.base.server.url", "zotero.org");
+pref("extensions.zotero.www.server.scheme", "https");
+pref("extensions.zotero.www.server.url", "www.zotero.org");
 pref("extensions.zotero.api.server.scheme", "https");
 pref("extensions.zotero.api.server.url", "api.zotero.org");
 pref("extensions.zotero.api.server.version", 2);

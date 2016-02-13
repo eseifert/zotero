@@ -51,6 +51,8 @@
 			<preference id="pref-keys-copySelectedItemsToClipboard" name="extensions.zotero.keys.copySelectedItemsToClipboard" type="string"/>
 			<preference id="pref-base-scheme" name="extensions.zotero.base.server.scheme" type="string"/>
 			<preference id="pref-base-url" name="extensions.zotero.base.server.url" type="string"/>
+			<preference id="pref-www-scheme" name="extensions.zotero.www.server.scheme" type="string"/>
+			<preference id="pref-www-url" name="extensions.zotero.www.server.url" type="string"/>
 			<preference id="pref-api-scheme" name="extensions.zotero.api.server.scheme" type="string"/>
 			<preference id="pref-api-url" name="extensions.zotero.api.server.url" type="string"/>
 			<preference id="pref-api-version" name="extensions.zotero.api.server.version" type="int"/>
@@ -308,6 +310,37 @@
 										<label value="://"/>
 										<textbox preference="pref-base-url" flex="1"
 											onchange="this.value = this.value.trim().replace(/^https?:\/\/|\/+$/, ''); Zotero.Prefs.set('base.server.url', this.value)"/>
+									</hbox>
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+
+					<groupbox>
+						<caption label="&zotero.preferences.server.www;"/>
+
+						<grid>
+							<columns>
+								<column/>
+								<column/>
+							</columns>
+
+							<rows>
+								<row>
+									<label value="&zotero.preferences.server.www.url;"/>
+
+									<hbox>
+										<menulist id="www-url-prefix"
+												preference="pref-www-scheme"
+												style="padding: 0; width: 7em">
+											<menupopup>
+												<menuitem label="https" value="https" style="padding: 0"/>
+												<menuitem label="http" value="http" style="padding: 0"/>
+											</menupopup>
+										</menulist>
+										<label value="://"/>
+										<textbox preference="pref-www-url" flex="1"
+											onchange="this.value = this.value.trim().replace(/^https?:\/\/|\/+$/, ''); Zotero.Prefs.set('www.server.url', this.value)"/>
 									</hbox>
 								</row>
 							</rows>
